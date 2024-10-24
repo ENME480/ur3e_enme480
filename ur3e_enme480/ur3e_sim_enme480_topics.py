@@ -19,7 +19,7 @@ class EndEffectorPositionPublisher(Node):
 
         # Define the frame names
         self.world_frame = 'world'  # Replace with your world frame name if different
-        self.end_effector_frame = 'wrist_3_link'  # Replace with your end-effector frame name if different
+        self.end_effector_frame = 'vacuum_gripper'  # Replace with your end-effector frame name if different
 
         # Set a timer to periodically publish the position
         self.timer = self.create_timer(1.0, self.timer_callback)
@@ -84,5 +84,4 @@ def main(args=None):
 
 
 if __name__ == '__main__':
-    main()
     main()

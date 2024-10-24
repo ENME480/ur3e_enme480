@@ -38,7 +38,7 @@ class JointTrajectoryPublisher(Node):
         ]
 
         point = JointTrajectoryPoint()
-        point.positions = joint_positions
+        point.positions = [ joint_positions[0], joint_positions[1], joint_positions[2] ,joint_positions[3] - 1.57 ,joint_positions[4] ,joint_positions[5] -1.57 ]
         point.time_from_start.sec = 5  # Modify time as needed for smoother motion
 
         traj_msg.points.append(point)

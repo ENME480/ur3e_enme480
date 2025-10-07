@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from tf2_ros import TransformListener, Buffer
 from geometry_msgs.msg import TransformStamped
-from ur3e_mrc.msg import PositionUR3e  
+from ur3e_mrc_msgs.msg import PositionUR3e  
 import tf_transformations  # Make sure you have this package installed
 
 class EndEffectorPositionPublisher(Node):
@@ -19,7 +19,7 @@ class EndEffectorPositionPublisher(Node):
 
         # Define the frame names
         self.world_frame = 'world'  # Replace with your world frame name if different
-        self.end_effector_frame = 'vacuum_gripper'  # Replace with your end-effector frame name if different
+        self.end_effector_frame = 'vac_gripper'  # Replace with your end-effector frame name if different
 
         # Set a timer to periodically publish the position
         self.timer = self.create_timer(1.0, self.timer_callback)

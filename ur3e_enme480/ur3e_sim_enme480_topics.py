@@ -48,13 +48,28 @@ class EndEffectorPositionPublisher(Node):
             # Convert quaternion to Euler angles (roll, pitch, yaw)
             euler_angles = tf_transformations.euler_from_quaternion(quaternion)
 
+            # --- BEGIN ONLY MATH CHANGE ---
+            # 90° CCW rotation about Z for position: (x', y') = (-y, x)
+            x_rot =  position[1]
+            y_rot =  -position[0]
+            z_rot =  position[2]
+
+            # +0.15 translation in X and Y
+            x_rot += -0.15
+            y_rot += 0.15
+
+            # Adjust yaw by +90° (π/2); roll and pitch unchanged
+            roll, pitch, yaw = euler_angles
+            yaw += 1.5707963267948966  # pi/2
+            # --- END ONLY MATH CHANGE ---
+
             # Combine position and Euler angles into a single array
-            position_with_orientation = position + list(euler_angles)
+            position_with_orientation = [x_rot, y_rot, z_rot, roll, pitch, yaw]
 
             # Create and publish the PositionUR3e message
             msg = PositionUR3e()
-            msg.position = position_with_orientation  # Position now includes orientation as Euler angles
-            msg.is_ready = True  # Set this based on any condition if needed
+            msg.position = position_with_orientation
+            msg.is_ready = True
 
             self.publisher_.publish(msg)
             self.get_logger().info(f'Publishing end-effector position with orientation (Euler)....')
@@ -62,7 +77,7 @@ class EndEffectorPositionPublisher(Node):
         except Exception as e:
             # If the transform is not available, set is_ready to False
             msg = PositionUR3e()
-            msg.position = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]  # Default position and orientation
+            msg.position = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
             msg.is_ready = False
 
             self.publisher_.publish(msg)

@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-from ur3e_mrc.msg import CommandUR3e 
+from ur3e_mrc_msgs.msg import CommandUR3e 
 import math
 
 class JointTrajectoryPublisher(Node):

@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
         	'ur3e_sim_enme480_ctrl = ur3e_enme480.ur3e_sim_enme480_ctrl:main',
         	'ur3e_sim_enme480_topics = ur3e_enme480.ur3e_sim_enme480_topics:main',
+            'ur3e_fk = ur3e_enme480.ur3e_fk:main',
         ],
     },
 )

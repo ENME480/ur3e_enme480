@@ -1,16 +1,16 @@
 import rclpy
 from rclpy.node import Node
-from ur3e_mrc.msg import PositionUR3e, CommandUR3e
+from ur3e_mrc_msgs.msg import PositionUR3e, CommandUR3e
 import sys
 import math
 import numpy as np
-from enme480_lab_fk.submodules.kinematic_functions import KinematicFunctions
+from ur3e_enme480.submodules.kinematic_functions import KinematicFunctions
 
 class ForwardKinematicsUR3e(Node):
 
     def __init__(self):
         super().__init__('ur3e_fk_publisher')
-        self.publisher_ = self.create_publisher(CommandUR3e, '/ur3/command', 10)
+        self.publisher_ = self.create_publisher(CommandUR3e, '/ur3e/command', 10)
 
         # Initialize with zeros or your desired values
         #self.send_command()
@@ -57,6 +57,13 @@ class ForwardKinematicsUR3e(Node):
         
         ################## YOUR CODE STARTS HERE ###################################
         # Calculate the FINAL TRANSFORMATION MATRIX here using DH parameters
+
+        # Insert intermediate transformation matrices here ....
+
+        
+
+        # Final transformation matrix
+        transform =
 
 
         ################################ YOUR CODE ENDS HERE #########################

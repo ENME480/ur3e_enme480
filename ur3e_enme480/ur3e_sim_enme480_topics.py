@@ -18,7 +18,7 @@ class EndEffectorPositionPublisher(Node):
         self.tf_listener = TransformListener(self.tf_buffer, self)
 
         # Define the frame names
-        self.world_frame = 'world'  # Replace with your world frame name if different
+        self.world_frame = 'base_link'  # Replace with your world frame name if different
         self.end_effector_frame = 'vac_gripper'  # Replace with your end-effector frame name if different
 
         # Set a timer to periodically publish the position

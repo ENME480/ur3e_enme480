@@ -32,9 +32,6 @@ class ForwardKinematicsUR3e(Node):
 
         ######################################### YOUR CODE STARTS ########################################
 
-        # Convert angles to radians
-
-
         # Create a CommandUR3e message
         # SET v AND a TO BE === 0.1
 
@@ -60,7 +57,7 @@ class ForwardKinematicsUR3e(Node):
 
         # Insert intermediate transformation matrices here ....
 
-        
+
 
         # Final transformation matrix
         transform =

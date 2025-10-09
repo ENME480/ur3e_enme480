@@ -60,7 +60,7 @@ class ForwardKinematicsUR3e(Node):
 
 
         # Final transformation matrix
-        transform = None  # Replace with your final transformation matrix
+        transform = np.eye(4)  # Replace with your final transformation matrix
 
 
         ################################ YOUR CODE ENDS HERE #########################

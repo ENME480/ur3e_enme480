@@ -60,7 +60,7 @@ class ForwardKinematicsUR3e(Node):
 
 
         # Final transformation matrix
-        transform =
+        transform = None  # Replace with your final transformation matrix
 
 
         ################################ YOUR CODE ENDS HERE #########################

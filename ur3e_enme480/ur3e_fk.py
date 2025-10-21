@@ -12,9 +12,6 @@ class ForwardKinematicsUR3e(Node):
         super().__init__('ur3e_fk_publisher')
         self.publisher_ = self.create_publisher(CommandUR3e, '/ur3e/command', 10)
 
-        # Initialize with zeros or your desired values
-        #self.send_command()
-
     def send_command(self, joint_positions):
         
         for angle in joint_positions:

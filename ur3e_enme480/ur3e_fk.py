@@ -24,7 +24,7 @@ class ForwardKinematicsUR3e(Node):
 
 
         ur3e_matrix = KinematicFunctions().correct_calculate_dh_transform(joint_positions)
-        if ur3e_matrix[2,3] < 0.05:
+        if ur3e_matrix[2,3] < 0.01:
             self.get_logger().info(f'z is going below the workbench. Resetting to Zero configuration')
             joint_positions = [0.0]*6  
 

@@ -15,15 +15,16 @@ class ForwardKinematicsUR3e(Node):
     def send_command(self, joint_positions):
         
         for angle in joint_positions:
-            if abs(angle) > 181:
+            if abs(angle) > 3.16:
                 joint_positions = [0.0]*6
 
-        if joint_positions[1] > 5:
+        if joint_positions[1] > 0.05:
             self.get_logger().info(f'z is going below the workbench. Resetting to Zero configuration')
+            joint_positions = [0.0]*6
 
 
         ur3e_matrix = KinematicFunctions().correct_calculate_dh_transform(joint_positions)
-        if ur3e_matrix[2,3] < 0.01:
+        if ur3e_matrix[2,3] < 0.05:
             self.get_logger().info(f'z is going below the workbench. Resetting to Zero configuration')
             joint_positions = [0.0]*6  
 
